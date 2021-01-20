@@ -101,7 +101,6 @@ public abstract class Reducer {
             }
         }
     }
-    
     // Runnable Thread which iterates through each element of input and calls reduce method for it.
     private class RunnableThread implements Runnable {
         private volatile ConcurrentHashMap<String,Object>  recordList;

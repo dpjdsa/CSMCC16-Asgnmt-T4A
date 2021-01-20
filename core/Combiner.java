@@ -97,6 +97,7 @@ public abstract class Combiner {
         // Add the new value to the list
         Job.map1.put(key,total);        
     }
+    
     // Runnable Thread which iterates through each element of input and calls combine method for it.
     private class RunnableThread implements Runnable {
         private volatile ConcurrentHashMap<String,Object>  recordList;

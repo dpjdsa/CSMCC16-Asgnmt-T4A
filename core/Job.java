@@ -18,9 +18,9 @@ public class Job {
     // Job configuration
     private Config config;
 
-    // Global thread-safe objects to store intermediate and final results and stack for maximum airmiles passenger and 
-    // number of airmiles
-    protected static ConcurrentHashMap<Object,Object> map,map1;
+    // Global Threadsafe objects to store intermediate and final results
+    protected static ConcurrentHashMap map,map1;
+    protected static ArrayList record;
     protected static Stack highestAmp=new Stack<String>();
     protected static Stack highestAm= new Stack<Double>();
 
@@ -31,18 +31,21 @@ public class Job {
 
     // Run the job through map, combine, reduce stages given the provided configuration
     public void run() throws Exception {
-        // Initialise the maps to store intermediate results
-        map=new ConcurrentHashMap<Object,Object>();
-        map1=new ConcurrentHashMap<Object,Object>();
+        // Initialise the Threadsafe maps to store intermediate results
+        map = new ConcurrentHashMap<Object,Object>();
+        map1 = new ConcurrentHashMap<Object,Object>();
+        // Initialise ArrayList to read in file prior to chunking up
+        record = new ArrayList<String>();
         // Execute the map and reduce phases in sequence
         map();
-        System.out.println("After Map Phase: " + map);
+        System.out.println("After Map Phase, output map is: " + map);
         combine();
-        System.out.println("After Combine Phase: " + map1);
+        System.out.println("After Combine Phase, output map is: " + map1);
         highestAmp.push("ABC1234DE5");
         highestAm.push(0.0);
         reduce();
-        System.out.format("\nHighest Airmiles from Passenger ID:%10s  Who achieved: %,10.0f Nautical airmiles.\n",highestAmp.peek(),highestAm.peek());
+        // Output the results to the console
+        System.out.format("Highest Airmiles from Passenger ID:%10s  Who achieved: %,10.0f Nautical airmiles.\n",highestAmp.peek(),highestAm.peek());
     }
 
     // Map each provided file using an instance of the mapper specified by the job configuration
@@ -62,8 +65,8 @@ public class Job {
         Reducer reducer = config.getReducerInstance(map1);
         reducer.run();
     }
-    // Return the results of request as a ConcurrentHashMap object
-    public static ConcurrentHashMap<Object,Object> getMap(){
+    //Return the results of request as a ConcurrentHashMap object
+    public static ConcurrentHashMap getMap(){
         return map1;      
     }
 }

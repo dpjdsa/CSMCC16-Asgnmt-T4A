@@ -1,18 +1,18 @@
 package core;
 
 import java.io.*;
-import java.util.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.*;
 import java.util.concurrent.*;
 
 
 /**
  * MapReduce Job Configuration
  * Stores the file specifications provided at run-time and
- * uses reflection to set objective-specific mapper, combiner and reducer classes.
+ * uses reflection to set objective-specific mapper and reducer classes.
  *
  * Areas for improvement:
  * - Output to file or implement a user interface to display results
@@ -21,7 +21,7 @@ public class Config {
     // Input files to process
     private File[] files;
 
-    // Classes to implement job-specific map, combine and reduce functions
+    // Classes to implement job-specific map and reduce functions
     private Class mapper, reducer, combiner;
 
     // Constructor
@@ -35,7 +35,7 @@ public class Config {
     // Initialise a job using the provided arguments
     private void init(String[] args) {
         if(args == null || args.length == 0) {
-            System.out.println("Usage: java MapReduce <files>\n\tProcess a set of files listed by <files> using a MapReduce implementation.");
+            System.out.println("Usage: java MapReduce <files>\n\tProcess a set of files listed by <files> using a trivial MapReduce implementation.");
             System.exit(1);
         }
         this.files = new File[args.length];
@@ -43,17 +43,17 @@ public class Config {
             this.files[i] = new File(args[i]);
     }
 
-    // Generic file reader returning an iterator cycling through each line of the specified file
-    protected static Iterator read(File file) throws IOException {
-        List record = new ArrayList();
-        BufferedReader br = new BufferedReader(new FileReader(file));
-        String line;
-        while((line = br.readLine()) != null)
-            record.add(line);
-        br.close();
-        return record.iterator();
-    }
-
+    
+    // Generic file reader returning a list containing each line of input file
+    protected static int read(File file) throws IOException {
+    BufferedReader br = new BufferedReader(new FileReader(file));
+    String line;
+    while((line = br.readLine()) != null)
+        Job.record.add(line);
+    br.close();
+    System.out.println("Size of file ="+Job.record.size());
+    return Job.record.size();
+}
     // Return the list of files to process
     protected File[] getFiles() {
         return this.files;

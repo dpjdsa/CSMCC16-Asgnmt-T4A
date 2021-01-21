@@ -6,7 +6,8 @@ import java.util.*;
 
 /**
  * An an abstract Mapper class defining multi-threaded map functionality
- *
+ *  @author BD837672
+ *  @version 20th January 2021
  *  - Number of Map threads defined by NUM_MAP_THREADS
  *  - Operates on portions of the input in parallel rather than on entire files
  *  - Implements the runnable interface for execution as a thread

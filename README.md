@@ -1,7 +1,7 @@
 # CSMCC16-Asgnmt-T4A
 Assignment Task 4A:
-Reads the airports file. Reads passenger records from the input csv file 
-A multi-threaded solution which creates a mapper for the input file and a combiner to add up airmiles per passenger 
+Reads the airports file from the input csv. Reads passenger records from the input csv file 
+A multi-threaded solution which creates a mapper for the input file, a combiner to add up airmiles per passenger 
 and a reducer to select the passenger with the highest airmiles.
 Also reads the passenger records and error checks and corrects before further processing
 

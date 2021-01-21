@@ -55,8 +55,6 @@ class Task_4A
         for (Map.Entry<String,Object> entry : mapIn.entrySet()){
             String key = entry.getKey();
             System.out.format("Passenger ID: %-12s  Nautical AirMiles: %,8.0f\n",key,entry.getValue());
-            //double value=Double.parseDouble(entry.getValue().toString());
-            //System.out.format("Flight: %-20s Nautical Miles: %.0f\n",key,value);
         }
     }
     // Flightid mapper:

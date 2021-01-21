@@ -8,6 +8,8 @@ import java.util.concurrent.*;
 
 /**
  * MapReduce Job class
+ * @author BD837672
+ * @version 20th January 2021
  * Coordinates the entire MapReduce process
  *
  * Features:

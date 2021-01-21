@@ -11,11 +11,11 @@ import java.util.concurrent.*;
 
 /**
  * MapReduce Job Configuration
- * @author BD837672
- * @version 20th January 2021
+ *
  * Stores the file specifications provided at run-time and
  * uses reflection to set objective-specific mapper and reducer classes.
- *
+ * @author BD837672
+ * @version 20th January 2021
  * 
  */
 public class Config {

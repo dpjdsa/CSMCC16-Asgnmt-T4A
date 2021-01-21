@@ -8,15 +8,15 @@ import java.util.concurrent.*;
 
 /**
  * MapReduce Job class
- * @author BD837672
- * @version 20th January 2021
+ *
  * Coordinates the entire MapReduce process
  *
  * Features:
  * - Implements effective partitioning or "chunking" of the input to evenly distribute records across multiple mappers
  *   and reducers
  * - Passes segmented chunks to independent threads for efficient parallel processing
- * 
+ * @author BD837672
+ * @version 20th January 2021
  */
 public class Job {
     // Job configuration

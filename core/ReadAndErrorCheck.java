@@ -9,6 +9,8 @@ import java.util.concurrent.*;
 import java.util.HashMap;
 /**
  * Assignment:
+ * @author BD837672
+ * @version 20th January 2021
  * Reading, Error Checking and Correcting input file
  * Reads in Airport list and Passenger record file.
  * Assumes airport list is error free but corrects passenger record fields
@@ -130,7 +132,7 @@ public class ReadAndErrorCheck
                             Passenger passenger = new Passenger(PassId,FltId,FrmApt,DstApt,DepTime,FltTime);
                             // Additional Code to trap cases where Flight ID has correct format but is a
                             // corruption of a Flight ID that has already been received at least once and
-                            // is a Levensthein distance of not more than 1 away from it 
+                            // is a Levenshtein distance of not more than 1 away from it 
                             if (Okflg){
                                 String fltCodeKey=FltId+FrmApt+DstApt;
                                 // Check if this flight code has already been seen
@@ -216,7 +218,7 @@ public class ReadAndErrorCheck
         return d[m][n]; 
     }
     // Compares FieldIn with Set containing possible values and chooses value with
-    // smallest Levensthein distance to be best match.
+    // smallest Levenshtein distance to be best match.
     public static String GetBestMatch(String FieldIn,HashSet<String> FieldListIn){
         int BestScore=9999;
         int Score=9999;

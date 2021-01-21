@@ -12,6 +12,8 @@ import java.util.Date;
 import java.text.*;
 /**
  * Assignment:
+ * @author BD837672
+ *
  * Calculates the line of sight total airmiles for each passenger and finds the passenger with the highest airmiles.
  * A multi-threaded solution which creates a mapper for the input file and a combiner for totalling airmiles for each passenger and a reducer to ,
  * select the passenger with the highest airmiles. Also error checks and corrects file input.

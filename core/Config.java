@@ -11,11 +11,12 @@ import java.util.concurrent.*;
 
 /**
  * MapReduce Job Configuration
+ * @author BD837672
+ * @version 20th January 2021
  * Stores the file specifications provided at run-time and
  * uses reflection to set objective-specific mapper and reducer classes.
  *
- * Areas for improvement:
- * - Output to file or implement a user interface to display results
+ * 
  */
 public class Config {
     // Input files to process
@@ -50,7 +51,6 @@ public class Config {
     //protected Mapper getMapperInstance(File file) throws Exception {
     protected Mapper getMapperInstance() throws Exception {
         Mapper mapper = (Mapper) this.mapper.getConstructor().newInstance();
-        //mapper.setFile(file);
         return mapper;
     }
     // Using reflection get an instance of the reducer operating on a chunk of the intermediate results

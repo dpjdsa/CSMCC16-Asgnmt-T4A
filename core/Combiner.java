@@ -8,7 +8,8 @@ import java.util.*;
 
 /**
  * An abstract Combiner class defining multi-threaded combine functionality
- *
+ * @author bd837672
+ * @version 20th January 2021
  * - Number of Combine Threads defined by NUM_COMBINE_THREADS.
  * - Splits inputs across threads and then executes threads in parallel.
  * - Implements runnable interface for execution as a thread.
